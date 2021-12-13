@@ -13,11 +13,6 @@ import {
 import axios from "axios"
 import { useSelector, useDispatch } from "react-redux"
 
-
-axios.defaults.baseURL = "http://localhost:5000"
-
-
-
 function App() {
   const user = useSelector(state => state.user)
   const dispatch = useDispatch()
