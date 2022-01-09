@@ -17,11 +17,13 @@ app.use(cors())
 app.use(postRouter)
 app.use(userRouter)
 
+const staticPath = path.join(__dirname, "../client/build")
+
 if (process.env.NODE_ENV == "production") {
-    app.use(express.static("client/build"))
+    app.use(express.static(staticPath));
     const path = require("path")
     app.get("*", (req, res) => {
-        res.sendFile(path.resolve(__dirname, "client", "build", "index.html"))
+        res.sendFile(path.resolve(__dirname, "../client", "build", "index.html"))
     })
 }
 
